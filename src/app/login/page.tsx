@@ -113,7 +113,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className={styles.authHint}>Activity Tracker \u2014 ask whoever set this up if you need an account.</p>
+                  <p className={styles.authHint}>Activity Tracker — ask whoever set this up if you need an account.</p>
       </div>
     </div>
   );
