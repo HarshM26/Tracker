@@ -1,0 +1,183 @@
+/* Theme lifted from index.html's "Auth screen" section.
+   Variables are scoped to .authPage (not :root) so they can't collide
+   with anything your global stylesheet already defines. */
+
+.authPage {
+  --blue: #007aff;
+  --green: #34c759;
+  --red: #ff3b30;
+  --bg: #f2f2f7;
+  --surface: #ffffff;
+  --label: #1c1c1e;
+  --label-2: #8e8e93;
+  --label-3: #c7c7cc;
+  --sep-soft: rgba(60, 60, 67, 0.13);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--label);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+
+.authPage button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  -webkit-appearance: none;
+}
+.authPage input {
+  font-family: inherit;
+}
+.authPage button:active {
+  opacity: 0.55;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 340px;
+}
+
+.appIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #32ade6, #007aff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 8px 20px rgba(0, 90, 220, 0.28);
+  color: #fff;
+}
+.appIcon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.authTitle {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 4px;
+}
+.authSubtitle {
+  font-size: 14px;
+  color: var(--label-2);
+  text-align: center;
+  margin: 0 0 20px;
+}
+.authError {
+  font-size: 13px;
+  color: var(--red);
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.formGroup {
+  background: var(--bg);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.formRow {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.formRow + .formRow {
+  border-top: 0.5px solid var(--sep-soft);
+}
+.formRow label {
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--label-2);
+}
+.formRow input[type="text"],
+.formRow input[type="password"] {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: var(--label);
+  outline: none;
+  width: 100%;
+}
+/* visible focus ring, since the original removes the native outline */
+.formRow:focus-within {
+  box-shadow: inset 0 0 0 1.5px var(--blue);
+  border-radius: 8px;
+}
+
+.fieldRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.fieldRow input {
+  padding-right: 52px;
+}
+.pwdToggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.authBtn {
+  width: 100%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px;
+  border-radius: 12px;
+  margin-top: 2px;
+  transition: opacity 0.15s;
+}
+.authBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.authBtn:focus-visible,
+.pwdToggle:focus-visible,
+.authToggleLink:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.authToggleLink {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--blue);
+}
+.authHint {
+  font-size: 12.5px;
+  color: var(--label-3);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .authPage * {
+    transition: none !important;
+  }
+}
